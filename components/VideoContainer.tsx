@@ -16,12 +16,12 @@ export default function VideoContainer(props: videoProps) {
     setLoaded(true)
   }
   return (
-    <Card shadow hidden={!loaded} style={{borderRadius: 20, cursor: 'pointer'}} onClick={() => setToast({text: 'coming soon'})}>
+    <Card shadow hidden={!loaded} style={{borderRadius: 15, cursor: 'pointer'}} onClick={() => setToast({text: 'coming soon'})}>
       <CameraImg src={props.url} onLoad={captureLoad}/>
     </Card>
   )
 }
 
 const CameraImg = styled.img`
-  border-radius: 20px;
+  border-radius: 15px;
 `

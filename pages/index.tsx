@@ -32,8 +32,8 @@ export default function Index() {
 }
 
 const Container = styled.div`
-  margin-left: 5rem;
-  margin-right: 5rem;
-  margin-bottom: 1rem;
-  margin-top: 3rem;
+  margin-left: 3rem;
+  margin-right: 3rem;
+  margin-bottom: 3rem;
+  margin-top: 2rem;
 `
