@@ -6,7 +6,7 @@ import VideoContainer from '../components/VideoContainer'
 // Geist
 import { Text, Grid, Note } from '@geist-ui/react'
 
-const cams = ['978', '183', '7', '403', '421', '438', '19', '5']
+const cams = [{id: '978', name: 'Broadway @ 46th St.'}, {id: '183', name: '5th Ave @ 59th St.'}, {id: '7', name: '5th Ave @ 23rd St.'}, {id: '403', name: 'Broadway @ 42nd St.'}, {id: '421', name: 'Barclays Center'}, {id: '438', name: 'Broadway @ 51st St.'}, {id: '19', name: '8th Ave @ 34th St.'}, {id: '5', name: 'Central Park S @ Columbus Cr.'}]
 
 export default function Index() {
   const [math, setMath] = useState(1)
@@ -14,19 +14,20 @@ export default function Index() {
   useEffect(() => {
     setInterval(() => {
       setMath(Math.random())
-    }, 1000)
+    }, 750)
   }, [])
 
   return (
     <Container>
       <Text h2>watch.astn.me</Text>
-      <Text p b>a react project by <a href={'https://astn.me'}>austin simon</a></Text>
+      <Text style={{marginTop: -10}}>nyc traffic cams, live.</Text>
+      <Text>a react project by <a href={'https://astn.me'}>austin simon</a></Text>
       <Grid.Container gap={3}>
         {cams.map(cam => (
-          <Grid key={cam}><VideoContainer name={`Camera ${cam}`} url={`https://jpg.nyctmc.org/cctv${cam}.jpg?math=${math}`} /></Grid>
+          <Grid key={cam.id}><VideoContainer name={cam.name} url={`https://jpg.nyctmc.org/cctv${cam.id}.jpg?math=${math}`} /></Grid>
         ))}
       </Grid.Container>
-      <Note type="secondary" style={{marginTop: 20}}>watch.aust.nyc is not affiliated with the New York City Department of Transportation or any similar establishments.</Note>
+      <Note type="warning" style={{marginTop: 20}}>watch.aust.nyc/watch.astn.me is not affiliated with the New York City Department of Transportation or any similar establishments.</Note>
     </Container>
   )
 }

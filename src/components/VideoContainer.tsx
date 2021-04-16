@@ -2,7 +2,7 @@ import { useState } from 'react'
 import styled from 'styled-components'
 
 // Geist
-import { Card, useToasts } from '@geist-ui/react'
+import { Card, Text, Divider } from '@geist-ui/react'
 
 type videoProps = {
   url: string,
@@ -10,13 +10,14 @@ type videoProps = {
 }
 
 export default function VideoContainer(props: videoProps) {
-  const [, setToast] = useToasts()
   const [loaded, setLoaded] = useState(false)
   function captureLoad() {
     setLoaded(true)
   }
   return (
-    <Card shadow hidden={!loaded} style={{borderRadius: 15, cursor: 'pointer'}} onClick={() => setToast({text: 'coming soon'})}>
+    <Card shadow hidden={!loaded} style={{borderRadius: 15, cursor: 'pointer'}}>
+      <Text b>{props.name}</Text>
+      <Divider />
       <CameraImg src={props.url} onLoad={captureLoad}/>
     </Card>
   )
