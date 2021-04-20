@@ -22,6 +22,7 @@ export default function Index() {
       <Text h2>watch.astn.me</Text>
       <Text style={{marginTop: -10}}>nyc traffic cams, live.</Text>
       <Text>a react project by <a href={'https://astn.me'}>austin simon</a></Text>
+      <Text>view the project on <a href={'https://github.com/atn/watch.astn.me'}>github</a></Text>
       <Grid.Container gap={3}>
         {cams.map(cam => (
           <Grid key={cam.id}><VideoContainer name={cam.name} url={`https://jpg.nyctmc.org/cctv${cam.id}.jpg?math=${math}`} /></Grid>
